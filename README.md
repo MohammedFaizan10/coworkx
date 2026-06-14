@@ -16,7 +16,7 @@ Rent out your idle GPU. Command autonomous AI agents by voice. No cloud AI, no d
 
 ## 🎥 Demo Video
 
-> _Add your 2-minute demo link here:_ **[Watch the demo](#)**
+> [_Add your 2-minute demo link here:_](https://drive.google.com/file/d/1cv31mvviU90oWVe9SB8gcbxibETbCs0R/view?usp=sharing) **[Watch the demo](#)**
 
 ---
 
