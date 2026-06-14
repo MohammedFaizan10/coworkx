@@ -1,0 +1,33 @@
+# ── CoWorkX Backend — Day 1 Requirements ─────────────────────────────────────
+# Only what's needed to run the server TODAY.
+# web3, boto3, celery added later (Day 6) to avoid C++ build tools error.
+
+# Core
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+python-dotenv==1.0.1
+
+# Database
+sqlalchemy==2.0.27
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# Validation
+pydantic==2.6.3
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+
+# HTTP + AI
+httpx==0.27.0
+anthropic==0.25.0
+
+# WebSocket
+python-socketio==5.11.2
+aiohttp==3.9.5
+websockets==12.0
+
+# Voice (Sarvam AI — STT saaras:v3 + TTS bulbul:v3)
+sarvamai
