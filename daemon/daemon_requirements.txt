@@ -1,0 +1,24 @@
+# CoWorkX Daemon — Python dependencies (worker machine)
+# Only what the daemon actually imports. Works on Windows, no C++ build tools.
+
+# WebSocket client (kept for compatibility; streaming path is optional)
+websockets==12.0
+
+# HTTP client (registration, heartbeat, task polling)
+httpx==0.27.0
+
+# System monitoring (CPU%, RAM%)
+psutil==5.9.8
+
+# Docker SDK — spawns the agent container
+docker==7.0.0
+
+# Environment variables (.env)
+python-dotenv==1.0.1
+
+# Windows named-pipe support for the Docker SDK
+pywin32==306
+
+# Daemon Control API (daemon_api.py) — local control panel backend
+fastapi==0.111.0
+uvicorn==0.30.1

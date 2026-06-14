@@ -1,0 +1,28 @@
+# ── CoWorkX Daemon .env ───────────────────────────────────────────────
+# Copy this file to ".env" in the daemon/ folder and fill in real values.
+
+# Coordinator URL the DAEMON uses (daemon runs on the host)
+COORDINATOR_URL=http://localhost:8000
+
+# Coordinator URL the AGENT uses from INSIDE the Docker container.
+# On Docker Desktop (Windows/Mac) the host is reachable via host.docker.internal.
+AGENT_COORDINATOR_URL=http://host.docker.internal:8000
+
+# Google AI Studio key — get it free at https://aistudio.google.com (no card).
+# This is injected into the agent container as GEMINI_API_KEY.
+GEMINI_API_KEY=your-google-ai-studio-key-here
+
+# Vision-capable Gemini model. Use gemini-2.5-flash-lite (15 RPM, 1000/day free).
+# Run list_models.py to see exactly what your key supports.
+GEMINI_MODEL=gemini-2.5-flash-lite
+
+# Heartbeat / timeouts
+HEARTBEAT_INTERVAL=10
+TASK_TIMEOUT=120
+
+# Max agent reasoning steps per task. Free tier is ~20 requests/DAY per model,
+# so keep this low (e.g. 8) to avoid burning your daily quota in one run.
+MAX_STEPS=8
+
+# Docker image name for the agent
+AGENT_IMAGE=coworkx-agent:latest
