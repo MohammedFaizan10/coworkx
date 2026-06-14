@@ -1,0 +1,86 @@
+/* CoWorkX Worker Node — dark premium (same tokens as main app) */
+
+:root {
+  --bg-void:        #050810;
+  --bg-base:        #090D1A;
+  --bg-surface:     #0F1628;
+  --bg-elevated:    #162038;
+  --bg-muted:       rgba(255,255,255,0.04);
+  --text-primary:   #EAEEF8;
+  --text-secondary: #8896B3;
+  --text-tertiary:  #4A5978;
+  --text-inverse:   #090D1A;
+  --accent:         #0EA5E9;
+  --accent-2:       #7C3AED;
+  --accent-dim:     rgba(14,165,233,0.08);
+  --accent-border:  rgba(14,165,233,0.25);
+  --success:        #10B981;
+  --success-dim:    rgba(16,185,129,0.10);
+  --warning:        #F59E0B;
+  --danger:         #EF4444;
+  --border-subtle:  rgba(255,255,255,0.06);
+  --border-normal:  rgba(255,255,255,0.10);
+  --border-strong:  rgba(255,255,255,0.18);
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-pill: 999px;
+  --sans: 'Space Grotesk', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; min-height: 100vh; }
+body {
+  background:
+    radial-gradient(900px 500px at 100% -10%, rgba(124,58,237,0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 0%, rgba(14,165,233,0.10), transparent 55%),
+    var(--bg-base);
+  background-attachment: fixed;
+  color: var(--text-primary); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { margin: 0; letter-spacing: -0.025em; font-weight: 600; }
+button { font-family: var(--sans); cursor: pointer; }
+
+.label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-tertiary); }
+.mono { font-family: var(--mono); }
+.muted { color: var(--text-secondary); }
+.faint { color: var(--text-tertiary); }
+.between { display: flex; align-items: center; justify-content: space-between; }
+.row { display: flex; align-items: center; }
+
+.live-bar, .accent-line { width: 28px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 1px; margin-bottom: 12px; }
+.live-bar.live, .accent-line.live { animation: pulseBar 2s ease-in-out infinite; }
+@keyframes pulseBar { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.dot.connected, .dot.online { background: var(--success); box-shadow: 0 0 0 4px var(--success-dim); }
+.dot.connecting { background: var(--warning); animation: pulseBar 1.2s ease-in-out infinite; }
+.dot.offline { background: var(--danger); }
+.dot.idle { background: var(--text-tertiary); }
+.dot.running { background: var(--warning); }
+
+.card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); animation: fadeIn 0.4s ease both; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: var(--radius-sm); font-size: 0.8125rem; font-weight: 500; border: 1px solid var(--border-normal); background: var(--bg-elevated); color: var(--text-primary); }
+.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: none; font-weight: 600; transition: filter 0.15s; }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-lg { height: 44px; padding: 0 24px; font-weight: 600; }
+.btn-danger { background: transparent; border: none; color: var(--danger); }
+
+.pill { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 0.6875rem; font-weight: 500; padding: 4px 10px; border-radius: var(--radius-pill); border: 1px solid var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { background: var(--border-normal); border-radius: 2px; }
+
+/* Gradient number text for stat cards */
+.grad-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* Stat cards get a faint tinted top */
+.stat-card { position: relative; overflow: hidden; }
+.stat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 0.7;
+}
