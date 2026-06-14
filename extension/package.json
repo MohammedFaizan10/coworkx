@@ -1,0 +1,48 @@
+{
+  "name": "coworkx",
+  "displayName": "CoWorkX",
+  "description": "Submit the current file to the CoWorkX AI workforce to fix bugs.",
+  "version": "0.1.0",
+  "publisher": "coworkx",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "coworkx.fixBugs",
+        "title": "CoWorkX: Fix Bugs in This File"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "coworkx.fixBugs",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CoWorkX",
+      "properties": {
+        "coworkx.coordinatorUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "Base URL of the CoWorkX coordinator."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}
