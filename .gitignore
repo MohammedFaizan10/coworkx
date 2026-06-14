@@ -1,0 +1,32 @@
+# ── Secrets — NEVER push these ───────────────────────────────────────
+.env
+.env.local
+*.env
+!*.env.example
+daemon/.machine_id
+
+# ── Python ───────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+venv/
+**/venv/
+.venv/
+*.egg-info/
+
+# ── Node ─────────────────────────────────────────────────────────────
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.next/
+
+# ── Docker / models (too large) ──────────────────────────────────────
+*.tar
+*.gguf
+*.bin
+
+# ── OS / editor junk ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
